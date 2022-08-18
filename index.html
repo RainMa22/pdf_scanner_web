@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scanner_style.css">
+    <title>PDF scanner</title>
+    <script>
+        var onImagesSubmit = (event) => {
+            let files= event.target.files
+            let preview=document.getElementById('preview')
+            preview.innerHTML=''
+            for(let i=0;i<files.length;i++){
+                let file=files[i]
+                console.log(file.name)
+                let image= document.createElement('img')
+                image.setAttribute('class','preview-image')
+                image.setAttribute('src', URL.createObjectURL(file))
+                preview.appendChild(image)
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
+</head>
+<body>
+    <!-- canvas for photo rendering -->
+    <canvas id="canvas"></canvas>
+    <input type="file" id="images" onchange="onImagesSubmit(event)" multiple>
+    <div id="preview"></div>
+    <!-- <script type="text/javascript">
+        async function main(){
+          let pyodide = await loadPyodide();
+          console.log(pyodide.runPython("1 + 2"));
+        }
+        main();
+    </script> -->
+</body>
+</html>

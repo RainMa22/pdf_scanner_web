@@ -1,0 +1,27 @@
+#canvas{
+    display: block;
+    min-width: 80vw;
+    max-width: 90vw;
+    min-height: 40vh;
+    max-height: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black 1px;
+}
+#images{
+    border: solid black 1vh;
+    width: 100%;
+}
+#preview {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+}
+.preview-image{
+    border: solid black 1vh;
+    max-width: 10vw;
+}
