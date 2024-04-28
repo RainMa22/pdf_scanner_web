@@ -13,15 +13,18 @@
     width: 100%;
 }
 #preview {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-    align-items: flex-start;
-    
+    display: grid;
+    grid-template-columns: repeat(5, 20vw);
+    grid-auto-rows: 1;
+    column-gap: 0;
+    width: 100vw;
+    height: auto;
+    align-items: start;
 }
 .preview-image{
     border: solid black 1vh;
-    max-width: 10vw;
+    width: 100%;
+}
+.selected{
+    border: solid blue 1vh;
 }
