@@ -19,13 +19,21 @@ var onImagesSubmit = (event) => {
 }
 
 function deselect(element) {
+    set_current_image('')
     element.setAttribute("class", element.getAttribute("original-class"))
 }
+
 function select(element) {
     if (selected != null) {
         deselect(selected)
     }
     selected = element
+   set_current_image(element.src)
     element.setAttribute("class", element.getAttribute("original-class") 
         + " selected")
+}
+
+function set_current_image(link){
+    let canvas_image = document.getElementById('canvas-image')
+    canvas_image.setAttribute('href', link)
 }

@@ -28,3 +28,7 @@
 .selected{
     border: solid blue 1vh;
 }
+.centered{
+    text-align: center;
+    align-content: center;
+}

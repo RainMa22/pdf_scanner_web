@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="scanner_style.css">
     <title>PDF scanner</title>
-    <script src = "src/eventHandler.js"></script>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
-</head>
-<body>
-    <!-- canvas for photo rendering -->
-    <canvas id="canvas"></canvas>
-    <input type="file" id="input" onchange="onImagesSubmit(event)" multiple>
-    <div id="preview"></div>
-    <!-- <script type="text/javascript">
-        async function main(){
-          let pyodide = await loadPyodide();
-          console.log(pyodide.runPython("1 + 2"));
+    <script type="text/javascript">
+        async function main() {
+            var pyodide = await loadPyodide();
+            //   console.log(pyodide.runPython("1 + 2"));
         }
         main();
-    </script> -->
+    </script>
+    <script src="src/eventHandler.js"></script>
+</head>
+
+<body>
+    <!-- canvas for photo rendering -->
+    <svg id="canvas">
+        <image id="canvas-image" x="0" y="0" width="100%" height = "100%"></image>
+        <g fill="transparent" stroke="black" stroke-width="2">
+            <circle cx="40" cy="40" r="25" draggable="true"/>
+            <circle cx="40" cy="40" r="25" draggable="true"/>
+            <circle cx="40" cy="40" r="25" draggable="true"/>
+            <circle cx="40" cy="40" r="25" draggable="true"/>
+          </g>
+    </svg>
+    <div class="centered">
+        <button class="input-button">Process</button>
+        <br>
+        <input type="file" id="input" onchange="onImagesSubmit(event)" multiple hidden>
+        <button class="input-button" onclick="document.getElementById('input').click()">Add File</button>
+    </div>
+    <div id="preview"></div>
+
 </body>
+
 </html>
